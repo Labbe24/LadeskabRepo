@@ -1,4 +1,5 @@
 ﻿using System;
+using LadeskabLibrary.RFID;
 using LadeskabLibrary.Door;
 
 class Program
@@ -8,6 +9,7 @@ class Program
         // Assemble your system here from all the classes
 
         DoorSimulator door = new DoorSimulator();
+        RfidReaderSimulator rfidReader = new RfidReaderSimulator();
 
         bool finish = false;
         do
@@ -45,5 +47,4 @@ class Program
 
         } while (!finish);
     }
-}
 }

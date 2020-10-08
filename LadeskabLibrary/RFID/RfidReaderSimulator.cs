@@ -5,10 +5,10 @@ using LadeskabLibrary.Events;
 
 namespace LadeskabLibrary.RFID
 {
-    class RfidReaderSimulator
+    public class RfidReaderSimulator : IRfidReader
     {
         public event EventHandler<RFIDDectedEventArgs> RFIDDectedEvent;
-        private void OnRfidRead(int Id)
+        public void OnRfidRead(int Id)
         {
 
         }
