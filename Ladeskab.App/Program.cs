@@ -1,10 +1,13 @@
 ﻿using System;
+using LadeskabLibrary.Door;
 
 class Program
 {
     static void Main(string[] args)
     {
         // Assemble your system here from all the classes
+
+        DoorSimulator door = new DoorSimulator();
 
         bool finish = false;
         do

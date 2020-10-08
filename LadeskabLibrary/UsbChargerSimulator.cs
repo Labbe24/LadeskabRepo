@@ -110,7 +110,7 @@ namespace LadeskabLibrary
 
         private void OnNewCurrent()
         {
-            CurrentValueEvent?.Invoke(this, new CurrentEventArgs() { Current = this.CurrentValue });
+            CurrentChangedEvent?.Invoke(this, new CurrentChangedEventArgs() { Current = this.CurrentValue });
         }
     }
 }
