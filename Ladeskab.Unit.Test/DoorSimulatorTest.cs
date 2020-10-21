@@ -34,6 +34,12 @@ namespace Ladeskab.Unit.Test
             Assert.That(_recievedDoorOpenedEventArgs, Is.Not.Null);
         }
 
+        [Test]
+        public void OnDoorOpen_OnDoorOpenNotCalled_EventNotFired()
+        {
+            Assert.That(_recievedDoorOpenedEventArgs, Is.Null);
+        }
+
 
     }
 }
