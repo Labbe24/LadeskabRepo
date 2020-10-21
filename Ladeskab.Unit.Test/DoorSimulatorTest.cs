@@ -43,14 +43,14 @@ namespace Ladeskab.Unit.Test
         [Test]
         public void OnDoorClose_OnDoorCloseCalled_EventFired()
         {
-            _uut.OnDoorOpen();
-            Assert.That(_recievedDoorOpenedEventArgs, Is.Not.Null);
+            _uut.OnDoorClose();
+            Assert.That(_recievedDoorClosedEventArgs, Is.Not.Null);
         }
 
         [Test]
         public void OnDoorClose_OnDoorCloseNotCalled_EventNotFired()
         {
-            Assert.That(_recievedDoorOpenedEventArgs, Is.Null);
+            Assert.That(_recievedDoorClosedEventArgs, Is.Null);
         }
 
 
