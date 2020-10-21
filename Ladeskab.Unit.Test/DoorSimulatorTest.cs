@@ -25,6 +25,10 @@ namespace Ladeskab.Unit.Test
             {
                 _recievedDoorOpenedEventArgs = args;
             };
+            _uut.DoorClosedEvent += (o, args) =>
+            {
+                _recievedDoorClosedEventArgs = args;
+            };
         }
 
         [Test]
