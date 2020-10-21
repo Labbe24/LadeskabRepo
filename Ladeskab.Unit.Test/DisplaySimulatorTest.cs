@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Text;
 using LadeskabLibrary;
 using LadeskabLibrary.Display;
+using NSubstitute;
 using NUnit.Framework;
 
 namespace Ladeskab.Unit.Test
@@ -17,7 +18,7 @@ namespace Ladeskab.Unit.Test
         [SetUp]
         public void Setup()
         {
-            _display = Subsitute.For<IDisplay>();
+            _display = Substitute.For<IDisplay>();
             _uut = new StationControl();
         }
 
