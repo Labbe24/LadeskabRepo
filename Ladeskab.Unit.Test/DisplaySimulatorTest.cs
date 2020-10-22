@@ -13,18 +13,19 @@ namespace Ladeskab.Unit.Test
     public class DisplaySimulatorTest
     {
         private StationControl _uut;
-        private IDisplay _display;
+        private EncapsulateIDisplay encapsulateIDisplay;
 
         [SetUp]
         public void Setup()
         {
-            _display = Substitute.For<IDisplay>();
+             = Substitute.For<IDisplay>();
             _uut = new StationControl();
         }
 
         [Test]
         public void DoorOpened_EventFired_DisplayConnectTelephone()
         {
+            
             //_display.DisplayConnectTelephone() +=
         }
 

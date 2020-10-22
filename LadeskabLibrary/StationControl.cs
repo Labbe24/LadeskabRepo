@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LadeskabLibrary.Display;
 using LadeskabLibrary.Door;
 
 namespace LadeskabLibrary
@@ -23,6 +24,7 @@ namespace LadeskabLibrary
         private IChargeControl _charger;
         private IDoor _door;
         private int _oldId;
+        private IDisplay _display;
 
         private string logFile = "logfile.txt"; // Navnet på systemets log-fil
 
