@@ -33,7 +33,7 @@ namespace Ladeskab.Unit.Test
         public void OnRfidRead_OnRfidReadCalled_CorrectId()
         {
             _uut.OnRfidRead(1);
-            Assert.That(_recievedRfidDetectedEventArgs, Is.EqualTo(1));
+            Assert.That(_recievedRfidDetectedEventArgs.Id, Is.EqualTo(1));
         }
     }
 }
