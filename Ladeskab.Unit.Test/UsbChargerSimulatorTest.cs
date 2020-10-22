@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using LadeskabLibrary;
+using LadeskabLibrary.UsbCharger;
 
 namespace Ladeskab.Unit.Test
 {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using LadeskabLibrary.Events;
 
-namespace LadeskabLibrary
+namespace LadeskabLibrary.UsbCharger
 {
     public interface IUsbCharger
     {
