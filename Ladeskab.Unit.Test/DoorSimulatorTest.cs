@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using LadeskabLibrary.Door;
 using LadeskabLibrary.Events;
+using NSubstitute;
 using NUnit.Framework;
 
 namespace Ladeskab.Unit.Test
@@ -56,6 +57,8 @@ namespace Ladeskab.Unit.Test
         {
             Assert.That(_recievedDoorClosedEventArgs, Is.Null);
         }
+
+        
 
 
     }

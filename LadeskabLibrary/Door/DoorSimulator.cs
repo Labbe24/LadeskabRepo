@@ -12,12 +12,12 @@ namespace LadeskabLibrary.Door
 
         public void LockDoor()
         {
-            Console.WriteLine("Locking door!");
+            Console.WriteLine("Door locked!");
         }
 
         public void UnlockDoor()
         {
-            Console.WriteLine("Unlocking door!");
+            Console.WriteLine("Door unlocked!");
         }
 
         public virtual void OnDoorOpen()
