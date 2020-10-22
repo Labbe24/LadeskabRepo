@@ -58,7 +58,21 @@ namespace Ladeskab.Unit.Test
             Assert.That(_recievedDoorClosedEventArgs, Is.Null);
         }
 
-        
+        [Test]
+        public void LockDoor_LockDoorCalled_LockedTrue()
+        {
+            _uut.LockDoor();
+            Assert.That(_uut.Locked, Is.EqualTo(true));
+        }
+
+        [Test]
+        public void LockDoor_LockDoorNotCalled_LockedFalse()
+        {
+            _uut.UnlockDoor();
+            Assert.That(_uut.Locked, Is.EqualTo(false));
+        }
+
+
 
 
     }
