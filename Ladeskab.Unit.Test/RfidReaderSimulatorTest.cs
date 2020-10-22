@@ -30,6 +30,12 @@ namespace Ladeskab.Unit.Test
         }
 
         [Test]
+        public void OnRfidRead_OnRfidReadNotCalled_EventNotFired()
+        {
+            Assert.That(_recievedRfidDetectedEventArgs, Is.Null);
+        }
+
+        [Test]
         public void OnRfidRead_OnRfidReadCalled_CorrectId()
         {
             _uut.OnRfidRead(1);
