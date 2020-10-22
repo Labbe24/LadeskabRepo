@@ -7,6 +7,6 @@ namespace LadeskabLibrary.RFID
 {
     public interface IRfidReader
     {
-        event EventHandler<RFIDDectedEventArgs> RFIDDectedEvent;
+        event EventHandler<RFIDDetectedEventArgs> RFIDDetectedEvent;
     }
 }
