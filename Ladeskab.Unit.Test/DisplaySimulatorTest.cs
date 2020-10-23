@@ -18,8 +18,8 @@ namespace Ladeskab.Unit.Test
         [SetUp]
         public void Setup()
         {
-             = Substitute.For<IDisplay>();
-            _uut = new StationControl();
+            // = Substitute.For<IDisplay>();
+            // _uut = new StationControl();
         }
 
         [Test]
