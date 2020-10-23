@@ -7,7 +7,6 @@ class Program
     static void Main(string[] args)
     {
         // Assemble your system here from all the classes
-
         DoorSimulator door = new DoorSimulator();
         RfidReaderSimulator rfidReader = new RfidReaderSimulator();
 

@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using LadeskabLibrary.Display;
 using LadeskabLibrary.Door;
+using LadeskabLibrary.Events;
+using LadeskabLibrary.RFID;
 
 namespace LadeskabLibrary
 {
@@ -23,12 +25,42 @@ namespace LadeskabLibrary
         private LadeskabState _state;
         private IChargeControl _charger;
         private IDoor _door;
+        private IRfidReader _rfidReader;
         private int _oldId;
         private IDisplay _display;
 
         private string logFile = "logfile.txt"; // Navnet på systemets log-fil
 
         // Her mangler constructor
+        public StationControl(IChargeControl charger, IDoor door, IDisplay display, IRfidReader rfidReader)
+        {
+            // Allow constructor-injection for tests
+            _charger = charger;
+            _door = door;
+            _display = display;
+            _rfidReader = rfidReader;
+
+            // Subscribe to Event's
+            // with handler that should handle the event
+            rfidReader.RFIDDetectedEvent += HandleRfidDetectedEvent;
+            door.DoorOpenedEvent += HandleDoorOpenedEvent;
+            door.DoorClosedEvent += HandleDoorClosedEvent;
+        }
+
+        private void HandleRfidDetectedEvent(object sender, RFIDDetectedEventArgs e)
+        {
+            RfidDetected(e.Id);
+        }
+
+        private void HandleDoorOpenedEvent(object sender, DoorOpenedEventArgs e)
+        {
+            DoorOpened();
+        }
+
+        private void HandleDoorClosedEvent(object sender, DoorClosedEventArgs e)
+        {
+            DoorClosed();
+        }
 
         // Eksempel på event handler for eventet "RFID Detected" fra tilstandsdiagrammet for klassen
         private void RfidDetected(int id)
@@ -84,7 +116,15 @@ namespace LadeskabLibrary
             }
         }
 
-        // Her mangler de andre trigger handlere
+        private void DoorOpened()
+        {
+
+        }
+
+        private void DoorClosed()
+        {
+
+        }
     }
 }
 
