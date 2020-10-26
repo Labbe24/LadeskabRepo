@@ -118,12 +118,40 @@ namespace LadeskabLibrary
 
         private void DoorOpened()
         {
+            switch (_state)
+            {
+                case LadeskabState.Available:
+                    Console.WriteLine("Tilslut telefon");
+                    _state = LadeskabState.DoorOpen;
+                    break;
 
+                case LadeskabState.DoorOpen:
+                    // Ignore
+                    break;
+
+                case LadeskabState.Locked:
+                    // Ignore
+                    break;
+            }
         }
 
         private void DoorClosed()
         {
+            switch (_state)
+            {
+                case LadeskabState.Available:
+                    // Ignore
+                    break;
 
+                case LadeskabState.DoorOpen:
+                    Console.WriteLine("Indlæs RFID");
+                    _state = LadeskabState.Available;
+                    break;
+
+                case LadeskabState.Locked:
+                    // Ignore
+                    break;
+            }
         }
     }
 }

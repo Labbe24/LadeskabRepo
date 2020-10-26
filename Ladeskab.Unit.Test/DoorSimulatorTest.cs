@@ -71,9 +71,5 @@ namespace Ladeskab.Unit.Test
             _uut.UnlockDoor();
             Assert.That(_uut.Locked, Is.EqualTo(false));
         }
-
-
-
-
     }
 }
