@@ -9,10 +9,21 @@ namespace LadeskabLibrary.ChargeControl
 {
     public class ChargeControl : IChargeControl
     {
-        private IUsbCharger usbCharger;
-        private IDisplay display;
+        private IUsbCharger _usbCharger;
+        private IDisplay _display;
 
         public event EventHandler<CurrentChangedEventArgs> CurrentChangedEvent;
+
+        public ChargeControl(IUsbCharger charger, IDisplay display)
+        {
+            // Allow constructor-injection for tests
+            _usbCharger = charger;
+            _display = display;
+
+            // Subscribe to Event's
+            // with handler that should handle the event
+            _usbCharger.CurrentChangedEvent += HandleCurrentChangedEvent;
+        }
 
         private void HandleCurrentChangedEvent(object s, CurrentChangedEventArgs e)
         {
@@ -27,34 +38,34 @@ namespace LadeskabLibrary.ChargeControl
                     break;
 
                 case double n when (0 < n && n <= 5):
-                    usbCharger.StopCharge();
-                    display.DisplayChargeDone();
+                    _usbCharger.StopCharge();
+                    _display.DisplayChargeDone();
                     break;
 
                 case double n when (5 < n && n <= 500):
-                    display.DisplayChargeingCorrect();
+                    _display.DisplayChargeingCorrect();
                     break;
 
                 case double n when (n > 500):
-                    usbCharger.StopCharge();
-                    display.DisplayConnectionError();
+                    _usbCharger.StopCharge();
+                    _display.DisplayConnectionError();
                     break;
             }
         }
 
         public bool IsConnected()
         {
-            return usbCharger.Connected;
+            return _usbCharger.Connected;
         }
 
         public void StartCharge()
         {
-            usbCharger.StartCharge();
+            _usbCharger.StartCharge();
         }
 
         public void StopCharge()
         {
-            usbCharger.StopCharge();
+            _usbCharger.StopCharge();
         }
     }
 }
