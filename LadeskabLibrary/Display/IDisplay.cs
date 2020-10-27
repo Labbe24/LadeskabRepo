@@ -15,5 +15,7 @@ namespace LadeskabLibrary.Display
         void DisplayChargeingCorrect();
         void DisplayChargeDone();
 
+        void DisplayChargingDoorLocked();
+
     }
 }

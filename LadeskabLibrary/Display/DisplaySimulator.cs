@@ -26,6 +26,11 @@ namespace LadeskabLibrary.Display
             Console.WriteLine(("Ladeskabet er optaget."));
         }
 
+        public void DisplayChargingDoorLocked()
+        {
+            Console.WriteLine("Skabet er låst og din telefon lades. Brug dit RFID tag til at låse op.");
+        }
+
         public void DisplayRfidError()
         {
             Console.WriteLine("Forkert RFID tag");
