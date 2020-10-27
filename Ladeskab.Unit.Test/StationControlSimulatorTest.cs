@@ -98,7 +98,7 @@ namespace Ladeskab.Unit.Test
         {
             _uut.State = StationControl.LadeskabState.Available;
             _chargeControl.IsConnected().Returns(true);
-            _rfidReader.RFIDDetectedEvent += Raise.EventWith(new RFIDDetectedEventArgs());
+            _rfidReader.RFIDDetectedEvent += Raise.EventWith(new RFIDDetectedEventArgs() { Id = id });
 
             Assert.That(_uut.OldId, Is.EqualTo(id));
         }
