@@ -15,7 +15,7 @@ namespace LadeskabLibrary.UsbCharger
 
         public event EventHandler<CurrentChangedEventArgs> CurrentChangedEvent;
 
-        public double CurrentValue { get; private set; }
+        public double CurrentValue { get; set; }
 
         public bool Connected { get; private set; }
 
