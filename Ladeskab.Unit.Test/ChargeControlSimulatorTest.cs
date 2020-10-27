@@ -73,8 +73,7 @@ namespace Ladeskab.Unit.Test
             _usbCharger.Received(1).StopCharge();
         }
 
-        [TestCase(6)]
-        [TestCase(500)]
+        [TestCase(501)]
         public void CurrentChange_CurrentIsBetween5and500_DisplayConnectionError(double newCurrent)
         {
             _usbCharger.CurrentChangedEvent += Raise.EventWith(new CurrentChangedEventArgs { Current = newCurrent });

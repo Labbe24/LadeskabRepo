@@ -11,6 +11,6 @@ namespace LadeskabLibrary.UsbCharger
         void StartCharge();
         void StopCharge();
         public bool Connected { get; }
-        public double CurrentValue { get; }
+        public double CurrentValue { get; set; }
     }
 }

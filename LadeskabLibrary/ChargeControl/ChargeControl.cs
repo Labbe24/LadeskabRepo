@@ -35,18 +35,22 @@ namespace LadeskabLibrary.ChargeControl
             switch (current)
             {
                 case double n when (n == 0):
+                    _usbCharger.CurrentValue = current;
                     break;
 
                 case double n when (0 < n && n <= 5):
+                    _usbCharger.CurrentValue = current;
                     _usbCharger.StopCharge();
                     _display.DisplayChargeDone();
                     break;
 
                 case double n when (5 < n && n <= 500):
+                    _usbCharger.CurrentValue = current;
                     _display.DisplayChargeingCorrect();
                     break;
 
                 case double n when (n > 500):
+                    _usbCharger.CurrentValue = current;
                     _usbCharger.StopCharge();
                     _display.DisplayConnectionError();
                     break;
