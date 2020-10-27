@@ -77,6 +77,7 @@ namespace Ladeskab.Unit.Test
         public void RfidDetected_StateAvailable_LockDoor()
         {
             _uut.State = StationControl.LadeskabState.Available;
+            _chargeControl.IsConnected().Returns(true);
             _rfidReader.RFIDDetectedEvent += Raise.EventWith(new RFIDDetectedEventArgs());
 
             _door.Received(1).LockDoor();
@@ -86,6 +87,7 @@ namespace Ladeskab.Unit.Test
         public void RfidDetected_StateAvailable_StartCharge()
         {
             _uut.State = StationControl.LadeskabState.Available;
+            _chargeControl.IsConnected().Returns(true);
             _rfidReader.RFIDDetectedEvent += Raise.EventWith(new RFIDDetectedEventArgs());
 
             _chargeControl.Received(1).StartCharge();
@@ -95,6 +97,7 @@ namespace Ladeskab.Unit.Test
         public void RfidDetected_StateAvailable_OldIdIsCorrect(int id)
         {
             _uut.State = StationControl.LadeskabState.Available;
+            _chargeControl.IsConnected().Returns(true);
             _rfidReader.RFIDDetectedEvent += Raise.EventWith(new RFIDDetectedEventArgs());
 
             Assert.That(_uut.OldId, Is.EqualTo(id));
