@@ -112,6 +112,16 @@ namespace Ladeskab.Unit.Test
 
             _display.Received(1).DisplayChargingDoorLocked();
         }
+        
+        [Test]
+        public void RfidDetected_StateAvailableChargerConnected_StateLocked()
+        {
+            _uut.State = StationControl.LadeskabState.Available;
+            _chargeControl.IsConnected().Returns(true);
+            _rfidReader.RFIDDetectedEvent += Raise.EventWith(new RFIDDetectedEventArgs());
+
+            Assert.That(_uut.State, Is.EqualTo(StationControl.LadeskabState.Locked));
+        }
      
 
     }
