@@ -34,8 +34,9 @@ namespace Ladeskab.Unit.Test
 
         }
 
+        // DoorOpenedEvent
         [Test]
-        public void DoorOpenedEvent_StateAvailable_StateDoorOpen()
+        public void DoorOpened_StateAvailable_StateDoorOpen()
         {
             _uut.State = StationControl.LadeskabState.Available;
             _door.DoorOpenedEvent += Raise.EventWith(new DoorOpenedEventArgs());
@@ -44,7 +45,7 @@ namespace Ladeskab.Unit.Test
         }
         
         [Test]
-        public void DoorOpenedEvent_StateAvailable_DisplayConnectTelephone()
+        public void DoorOpened_StateAvailable_DisplayConnectTelephone()
         {
             _uut.State = StationControl.LadeskabState.Available;
             _door.DoorOpenedEvent += Raise.EventWith(new DoorOpenedEventArgs());
@@ -52,8 +53,9 @@ namespace Ladeskab.Unit.Test
             _display.Received(1).DisplayConnectTelephone();
         }
 
+        // DoorClosedEvent
         [Test]
-        public void DoorClosedEvent_StateDoorOpen_StateAvailable()
+        public void DoorClosed_StateDoorOpen_StateAvailable()
         {
             _uut.State = StationControl.LadeskabState.DoorOpen;
             _door.DoorClosedEvent += Raise.EventWith(new DoorClosedEventArgs());
@@ -62,7 +64,7 @@ namespace Ladeskab.Unit.Test
         }
         
         [Test]
-        public void DoorClosedEvent_StateDoorOpen_DisplayReadRfid()
+        public void DoorClosed_StateDoorOpen_DisplayReadRfid()
         {
             _uut.State = StationControl.LadeskabState.DoorOpen;
             _door.DoorClosedEvent += Raise.EventWith(new DoorClosedEventArgs());
@@ -70,6 +72,15 @@ namespace Ladeskab.Unit.Test
             _display.Received(1).DisplayReadRfid();
         }
 
+        // RfidDetectedEvent
+        [Test]
+        public void RfidDetected_StateAvailable_LockDoor()
+        {
+            _uut.State = StationControl.LadeskabState.Available;
+            _rfidReader.RFIDDetectedEvent += Raise.EventWith(new RFIDDetectedEventArgs());
+
+            _door.Received(1).LockDoor();
+        }
      
 
     }
