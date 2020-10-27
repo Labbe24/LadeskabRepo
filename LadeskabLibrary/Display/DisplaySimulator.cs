@@ -36,5 +36,15 @@ namespace LadeskabLibrary.Display
             Console.WriteLine("Tag din telefon ud af skabet og luk døren");
         }
 
+        public void DisplayChargeingCorrect()
+        {
+            Console.WriteLine("Opladningen af telefonen er igang og foregår normalt.");
+        }
+
+        public void DisplayChargeDone()
+        {
+            Console.WriteLine("Opladning af din telefon er færdig.");
+        }
+
     }
 }

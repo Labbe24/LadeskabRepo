@@ -12,6 +12,8 @@ namespace LadeskabLibrary.Display
         void DisplayReserved();
         void DisplayRfidError();
         void DisplayRemoveTelephone();
+        void DisplayChargeingCorrect();
+        void DisplayChargeDone();
 
     }
 }
