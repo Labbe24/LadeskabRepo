@@ -60,6 +60,15 @@ namespace Ladeskab.Unit.Test
 
             Assert.That(_uut.State, Is.EqualTo(StationControl.LadeskabState.Available));
         }
+        
+        [Test]
+        public void DoorClosedEvent_StateDoorOpen_DisplayReadRfid()
+        {
+            _uut.State = StationControl.LadeskabState.DoorOpen;
+            _door.DoorClosedEvent += Raise.EventWith(new DoorClosedEventArgs());
+
+            _display.Received(1).DisplayReadRfid();
+        }
 
      
 

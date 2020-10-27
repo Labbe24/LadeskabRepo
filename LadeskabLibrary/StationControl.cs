@@ -152,7 +152,7 @@ namespace LadeskabLibrary
                     break;
 
                 case LadeskabState.DoorOpen:
-                    Console.WriteLine("Indlæs RFID");
+                    _display.DisplayReadRfid();
                     _state = LadeskabState.Available;
                     break;
 
