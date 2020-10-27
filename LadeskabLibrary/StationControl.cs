@@ -14,7 +14,8 @@ namespace LadeskabLibrary
     public class StationControl
     {
         // Enum med tilstande ("states") svarende til tilstandsdiagrammet for klassen
-        private enum LadeskabState
+        // Made public for testability
+        public enum LadeskabState
         {
             Available,
             Locked,
@@ -29,6 +30,13 @@ namespace LadeskabLibrary
         private int _oldId;
         private IDisplay _display;
 
+        // For testability
+        public LadeskabState State
+        {
+            get { return _state; }
+            set { _state = value; }
+        }
+
         private string logFile = "logfile.txt"; // Navnet på systemets log-fil
 
         // Her mangler constructor
@@ -42,9 +50,9 @@ namespace LadeskabLibrary
 
             // Subscribe to Event's
             // with handler that should handle the event
-            rfidReader.RFIDDetectedEvent += HandleRfidDetectedEvent;
-            door.DoorOpenedEvent += HandleDoorOpenedEvent;
-            door.DoorClosedEvent += HandleDoorClosedEvent;
+            _rfidReader.RFIDDetectedEvent += HandleRfidDetectedEvent;
+            _door.DoorOpenedEvent += HandleDoorOpenedEvent;
+            _door.DoorClosedEvent += HandleDoorClosedEvent;
         }
 
         private void HandleRfidDetectedEvent(object sender, RFIDDetectedEventArgs e)
@@ -121,7 +129,7 @@ namespace LadeskabLibrary
             switch (_state)
             {
                 case LadeskabState.Available:
-                    Console.WriteLine("Tilslut telefon");
+                    _display.DisplayConnectTelephone();
                     _state = LadeskabState.DoorOpen;
                     break;
 

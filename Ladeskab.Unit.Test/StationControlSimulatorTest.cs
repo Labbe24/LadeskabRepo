@@ -35,23 +35,24 @@ namespace Ladeskab.Unit.Test
         }
 
         [Test]
-        public void HandleRfidDetected_RfidDetectedCalled()
+        public void DoorOpenedEvent_StateAvailable_StateDoorOpen()
         {
-
-        }
-
-        [Test]
-        public void DoorOpenedEvent_ValidArguments_DoorOpendCalled()
-        {
+            _uut.State = StationControl.LadeskabState.Available;
             _door.DoorOpenedEvent += Raise.EventWith(new DoorOpenedEventArgs());
-            _uut.Received(1).DoorOpened();
-        }
 
+            Assert.That(_uut.State, Is.EqualTo(StationControl.LadeskabState.DoorOpen));
+        }
+        
         [Test]
-        public void RfidDetected_LadeskabStateAvailable_LadeskabStateLocked()
+        public void DoorOpenedEvent_StateAvailable_DisplayConnectTelephone()
         {
+            _uut.State = StationControl.LadeskabState.Available;
+            _door.DoorOpenedEvent += Raise.EventWith(new DoorOpenedEventArgs());
 
+            _display.Received(1).DisplayConnectTelephone();
         }
+
+     
 
     }
 }
