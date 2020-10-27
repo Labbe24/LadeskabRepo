@@ -31,6 +31,10 @@ namespace LadeskabLibrary
         private IDisplay _display;
 
         // For testability
+        public int OldId
+        {
+            get { return _oldId; }
+        }
         public LadeskabState State
         {
             get { return _state; }

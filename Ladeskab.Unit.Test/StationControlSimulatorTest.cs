@@ -90,6 +90,15 @@ namespace Ladeskab.Unit.Test
 
             _chargeControl.Received(1).StartCharge();
         }
+        
+        [TestCase(1)]
+        public void RfidDetected_StateAvailable_OldIdIsCorrect(int id)
+        {
+            _uut.State = StationControl.LadeskabState.Available;
+            _rfidReader.RFIDDetectedEvent += Raise.EventWith(new RFIDDetectedEventArgs());
+
+            Assert.That(_uut.OldId, Is.EqualTo(id));
+        }
      
 
     }
