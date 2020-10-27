@@ -81,6 +81,15 @@ namespace Ladeskab.Unit.Test
 
             _door.Received(1).LockDoor();
         }
+        
+        [Test]
+        public void RfidDetected_StateAvailable_StartCharge()
+        {
+            _uut.State = StationControl.LadeskabState.Available;
+            _rfidReader.RFIDDetectedEvent += Raise.EventWith(new RFIDDetectedEventArgs());
+
+            _chargeControl.Received(1).StartCharge();
+        }
      
 
     }
