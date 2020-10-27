@@ -132,6 +132,16 @@ namespace Ladeskab.Unit.Test
 
             Assert.That(_uut.State, Is.EqualTo(StationControl.LadeskabState.Available));
         }
+        
+        [Test]
+        public void RfidDetected_StateAvailableChargerNotConnected_DisplayConnectionError()
+        {
+            _uut.State = StationControl.LadeskabState.Available;
+            _chargeControl.IsConnected().Returns(false);
+            _rfidReader.RFIDDetectedEvent += Raise.EventWith(new RFIDDetectedEventArgs());
+
+            _display.Received(1).DisplayConnectionError();
+        }
      
 
     }
