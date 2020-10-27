@@ -122,6 +122,16 @@ namespace Ladeskab.Unit.Test
 
             Assert.That(_uut.State, Is.EqualTo(StationControl.LadeskabState.Locked));
         }
+        
+        [Test]
+        public void RfidDetected_StateAvailableChargerNotConnected_StateAvailable()
+        {
+            _uut.State = StationControl.LadeskabState.Available;
+            _chargeControl.IsConnected().Returns(false);
+            _rfidReader.RFIDDetectedEvent += Raise.EventWith(new RFIDDetectedEventArgs());
+
+            Assert.That(_uut.State, Is.EqualTo(StationControl.LadeskabState.Available));
+        }
      
 
     }
