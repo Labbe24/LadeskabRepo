@@ -142,6 +142,15 @@ namespace Ladeskab.Unit.Test
 
             _display.Received(1).DisplayConnectionError();
         }
+        
+        [Test]
+        public void RfidDetected_StateLockedCorrectId_StopCharge()
+        {
+            _uut.State = StationControl.LadeskabState.Locked;
+            _rfidReader.RFIDDetectedEvent += Raise.EventWith(new RFIDDetectedEventArgs());
+
+            _chargeControl.Received(1).StopCharge();
+        }
      
 
     }
