@@ -52,6 +52,15 @@ namespace Ladeskab.Unit.Test
             _display.Received(1).DisplayConnectTelephone();
         }
 
+        [Test]
+        public void DoorClosedEvent_StateDoorOpen_StateAvailable()
+        {
+            _uut.State = StationControl.LadeskabState.DoorOpen;
+            _door.DoorClosedEvent += Raise.EventWith(new DoorClosedEventArgs());
+
+            Assert.That(_uut.State, Is.EqualTo(StationControl.LadeskabState.Available));
+        }
+
      
 
     }
