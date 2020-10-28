@@ -6,49 +6,50 @@ namespace LadeskabLibrary.Display
 {
     public class DisplaySimulator : IDisplay
     {
+        private IEncapsulateIDisplay encapsulateIDisplay;
         public void DisplayConnectTelephone()
         {
-            Console.WriteLine(("Tilslut din telefon."));
+            encapsulateIDisplay.WriteLine("Tilslut din telefon.");
         }
 
         public void DisplayReadRfid()
         {
-            Console.WriteLine(("Placer RFID tag mod scanner."));
+            encapsulateIDisplay.WriteLine("Placer RFID tag mod scanner.");
         }
 
         public void DisplayConnectionError()
         {
-            Console.WriteLine("Din telefon er ikke ordentlig tilsluttet. Prøv igen.");
+            encapsulateIDisplay.WriteLine("Din telefon er ikke ordentlig tilsluttet. Prøv igen.");
         }
 
         public void DisplayReserved()
         {
-            Console.WriteLine(("Ladeskabet er optaget."));
+            encapsulateIDisplay.WriteLine("Ladeskabet er optaget.");
         }
 
         public void DisplayChargingDoorLocked()
         {
-            Console.WriteLine("Skabet er låst og din telefon lades. Brug dit RFID tag til at låse op.");
+            encapsulateIDisplay.WriteLine("Skabet er låst og din telefon lades. Brug dit RFID tag til at låse op.");
         }
 
         public void DisplayRfidError()
         {
-            Console.WriteLine("Forkert RFID tag");
+            encapsulateIDisplay.WriteLine("Forkert RFID tag");
         }
 
         public void DisplayRemoveTelephone()
         {
-            Console.WriteLine("Tag din telefon ud af skabet og luk døren");
+            encapsulateIDisplay.WriteLine("Tag din telefon ud af skabet og luk døren");
         }
 
         public void DisplayChargeingCorrect()
         {
-            Console.WriteLine("Opladningen af telefonen er igang og foregår normalt.");
+            encapsulateIDisplay.WriteLine("Opladningen af telefonen er igang og foregår normalt.");
         }
 
         public void DisplayChargeDone()
         {
-            Console.WriteLine("Opladning af din telefon er færdig.");
+            encapsulateIDisplay.WriteLine("Opladning af din telefon er færdig.");
         }
 
     }
