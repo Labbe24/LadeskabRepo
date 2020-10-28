@@ -169,6 +169,15 @@ namespace Ladeskab.Unit.Test
 
             _display.Received(1).DisplayRemoveTelephone();
         }
+        
+        [Test]
+        public void RfidDetected_StateLockedCorrectId_StateAvailable()
+        {
+            _uut.State = StationControl.LadeskabState.Locked;
+            _rfidReader.RFIDDetectedEvent += Raise.EventWith(new RFIDDetectedEventArgs());
+
+            Assert.That(_uut.State, Is.EqualTo(StationControl.LadeskabState.Available));
+        }
      
 
     }
