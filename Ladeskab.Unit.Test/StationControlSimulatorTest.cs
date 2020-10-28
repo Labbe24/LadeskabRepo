@@ -160,6 +160,15 @@ namespace Ladeskab.Unit.Test
 
             _door.Received(1).UnlockDoor();
         }
+        
+        [Test]
+        public void RfidDetected_StateLockedCorrectId_DisplayRemoveTelephone()
+        {
+            _uut.State = StationControl.LadeskabState.Locked;
+            _rfidReader.RFIDDetectedEvent += Raise.EventWith(new RFIDDetectedEventArgs());
+
+            _display.Received(1).DisplayRemoveTelephone();
+        }
      
 
     }

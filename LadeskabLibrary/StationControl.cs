@@ -116,7 +116,7 @@ namespace LadeskabLibrary
                             writer.WriteLine(DateTime.Now + ": Skab låst op med RFID: {0}", id);
                         }
 
-                        Console.WriteLine("Tag din telefon ud af skabet og luk døren");
+                        _display.DisplayRemoveTelephone();
                         _state = LadeskabState.Available;
                     }
                     else
