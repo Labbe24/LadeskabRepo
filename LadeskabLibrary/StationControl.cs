@@ -34,6 +34,7 @@ namespace LadeskabLibrary
         public int OldId
         {
             get { return _oldId; }
+            set { _oldId = value; }
         }
         public LadeskabState State
         {
@@ -121,7 +122,7 @@ namespace LadeskabLibrary
                     }
                     else
                     {
-                        Console.WriteLine("Forkert RFID tag");
+                        _display.DisplayRfidError();
                     }
 
                     break;

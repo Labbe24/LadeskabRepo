@@ -178,6 +178,16 @@ namespace Ladeskab.Unit.Test
 
             Assert.That(_uut.State, Is.EqualTo(StationControl.LadeskabState.Available));
         }
+        
+        [TestCase(1)]
+        public void RfidDetected_StateLockedNotCorrectId_DisplayRfidError(int id)
+        {
+            _uut.State = StationControl.LadeskabState.Locked;
+            _uut.OldId = 0;
+            _rfidReader.RFIDDetectedEvent += Raise.EventWith(new RFIDDetectedEventArgs{Id = id});
+
+            _display.Received(1).DisplayRfidError();
+        }
      
 
     }
