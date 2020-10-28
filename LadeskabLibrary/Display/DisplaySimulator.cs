@@ -34,7 +34,7 @@ namespace LadeskabLibrary.Display
 
         public void DisplayChargingDoorLocked()
         {
-            encapsulateIDisplay.WriteLine("Skabet er låst og din telefon lades. Brug dit RFID tag til at låse op.");
+            _encapsulateIDisplay.WriteLine("Skabet er låst og din telefon lades. Brug dit RFID tag til at låse op.");
         }
 
         public void DisplayRfidError()
