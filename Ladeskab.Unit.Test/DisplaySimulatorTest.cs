@@ -21,7 +21,7 @@ namespace Ladeskab.Unit.Test
         public void Setup()
         {
             _encapsulateIDisplay = Substitute.For<IEncapsulateIDisplay>();
-            _uut = new DisplaySimulator();
+            _uut = new DisplaySimulator(_encapsulateIDisplay);
         }
 
         [Test]
