@@ -27,17 +27,7 @@ namespace Ladeskab.Unit.Test
 
             _uut = new ChargeControl(_usbCharger,_display);
         }
-
-        [TestCase(0)]
-        [TestCase(5)]
-        [TestCase(500)]
-        [TestCase(501)]
-        public void CurrenChange_DifferentArguments_CurrentChangeIsCorrect(double newCurrent)
-        {
-            _usbCharger.CurrentChangedEvent += Raise.EventWith(new CurrentChangedEventArgs {Current = newCurrent});
-            Assert.That(_usbCharger.CurrentValue, Is.EqualTo((newCurrent)));
-        }
-
+        
         [TestCase(1)]
         [TestCase(3)]
         [TestCase(5)]
