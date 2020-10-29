@@ -108,7 +108,7 @@ namespace LadeskabLibrary
 
                 case LadeskabState.Locked:
                     // Check for correct ID
-                    if (id == _oldId)
+                    if (CheckId(id))
                     {
                         _charger.StopCharge();
                         _door.UnlockDoor();
@@ -165,6 +165,11 @@ namespace LadeskabLibrary
                     // Ignore
                     break;
             }
+        }
+
+        private bool CheckId(int id)
+        {
+            return _oldId == id;
         }
     }
 }
