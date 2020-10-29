@@ -49,6 +49,7 @@ namespace LadeskabLibrary.Display
 
         public void DisplayChargeingCorrect()
         {
+            Console.Clear();
             _encapsulateIDisplay.WriteLine("Opladningen af telefonen er igang og foregår normalt.");
         }
 

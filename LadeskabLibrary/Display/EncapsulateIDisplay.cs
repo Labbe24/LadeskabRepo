@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LadeskabLibrary.Display
 {
-    class EncapsulateDisplay : IEncapsulateIDisplay
+    public class EncapsulateDisplay : IEncapsulateIDisplay
     {
         public void WriteLine(String text)
         {

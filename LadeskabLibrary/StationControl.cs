@@ -52,6 +52,7 @@ namespace LadeskabLibrary
             _door = door;
             _display = display;
             _rfidReader = rfidReader;
+            _state = LadeskabState.Available;
 
             // Subscribe to Event's
             // with handler that should handle the event

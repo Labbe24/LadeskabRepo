@@ -1,6 +1,10 @@
 ﻿using System;
+using LadeskabLibrary;
+using LadeskabLibrary.ChargeControl;
+using LadeskabLibrary.Display;
 using LadeskabLibrary.RFID;
 using LadeskabLibrary.Door;
+using LadeskabLibrary.UsbCharger;
 
 class Program
 {
@@ -9,6 +13,13 @@ class Program
         // Assemble your system here from all the classes
         DoorSimulator door = new DoorSimulator();
         RfidReaderSimulator rfidReader = new RfidReaderSimulator();
+        EncapsulateDisplay encapDisplay = new EncapsulateDisplay();
+        DisplaySimulator display = new DisplaySimulator(encapDisplay);
+        UsbChargerSimulator usbCharger = new UsbChargerSimulator();
+        ChargeControl chargeControl = new ChargeControl(usbCharger, display);
+        StationControl stationControl = new StationControl(chargeControl, door, display, rfidReader);
+
+        usbCharger.SimulateConnected(true);
 
         bool finish = false;
         do
