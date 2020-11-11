@@ -15,7 +15,7 @@ namespace LadeskabLibrary
     {
         // Enum med tilstande ("states") svarende til tilstandsdiagrammet for klassen
         // Made public for testability
-        public enum LadeskabState
+        private enum LadeskabState
         {
             Available,
             Locked,
@@ -29,18 +29,6 @@ namespace LadeskabLibrary
         private IRfidReader _rfidReader;
         private int _oldId;
         private IDisplay _display;
-
-        // For testability
-        public int OldId
-        {
-            get { return _oldId; }
-            set { _oldId = value; }
-        }
-        public LadeskabState State
-        {
-            get { return _state; }
-            set { _state = value; }
-        }
 
         private string logFile = "logfile.txt"; // Navnet på systemets log-fil
 
