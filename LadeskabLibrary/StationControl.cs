@@ -91,9 +91,9 @@ namespace LadeskabLibrary
 
                     break;
 
-                case LadeskabState.DoorOpen:
+                /*case LadeskabState.DoorOpen:
                     // Ignore
-                    break;
+                    break;*/
 
                 case LadeskabState.Locked:
                     // Check for correct ID
@@ -127,13 +127,13 @@ namespace LadeskabLibrary
                     _state = LadeskabState.DoorOpen;
                     break;
 
-                case LadeskabState.DoorOpen:
+                /*case LadeskabState.DoorOpen:
                     // Ignore
-                    break;
+                    break;*/
 
-                case LadeskabState.Locked:
+                /*case LadeskabState.Locked:
                     // Ignore
-                    break;
+                    break;*/
             }
         }
 
@@ -141,18 +141,18 @@ namespace LadeskabLibrary
         {
             switch (_state)
             {
-                case LadeskabState.Available:
+                /*case LadeskabState.Available:
                     // Ignore
-                    break;
+                    break;*/
 
                 case LadeskabState.DoorOpen:
                     _display.DisplayReadRfid();
                     _state = LadeskabState.Available;
                     break;
 
-                case LadeskabState.Locked:
+                /*case LadeskabState.Locked:
                     // Ignore
-                    break;
+                    break;*/
             }
         }
 
