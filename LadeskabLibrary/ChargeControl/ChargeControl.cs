@@ -34,8 +34,8 @@ namespace LadeskabLibrary.ChargeControl
         {
             switch (current)
             {
-                case double n when (n == 0):
-                    break;
+                //case double n when (n == 0):
+                    //break;
 
                 case double n when (0 < n && n <= 5):
                     _usbCharger.StopCharge();
