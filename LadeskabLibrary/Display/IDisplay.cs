@@ -14,7 +14,6 @@ namespace LadeskabLibrary.Display
         void DisplayRemoveTelephone();
         void DisplayChargeingCorrect();
         void DisplayChargeDone();
-
         void DisplayChargingDoorLocked();
 
     }

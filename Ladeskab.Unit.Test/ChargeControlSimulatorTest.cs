@@ -69,5 +69,33 @@ namespace Ladeskab.Unit.Test
             _usbCharger.CurrentChangedEvent += Raise.EventWith(new CurrentChangedEventArgs { Current = newCurrent });
             _display.Received(1).DisplayConnectionError();
         }
+
+        [Test]
+        public void StartCharge_StartChargeCalled_usbChargerStartChargeCalled()
+        {
+            _uut.StartCharge(); 
+            _usbCharger.Received(1).StartCharge();
+        }
+        [Test]
+        public void StopCharge_StopChargeCalled_usbChargerStopChargeCalled()
+        {
+            _uut.StopCharge();
+            _usbCharger.Received(1).StopCharge();
+        }
+
+        [Test]
+        public void IsConnected_ConnectedCalled_usbChargerConnectedTrue()
+        {
+            _usbCharger.Connected.Returns(true);
+            bool connected = _uut.IsConnected();
+            Assert.That(connected,Is.EqualTo(true));
+        }
+        [Test]
+        public void IsConnected_ConnectedCalled_usbChargerConnectedFalse()
+        {
+            _usbCharger.Connected.Returns(false);
+            bool connected = _uut.IsConnected();
+            Assert.That(connected, Is.EqualTo(false));
+        }
     }
 }
