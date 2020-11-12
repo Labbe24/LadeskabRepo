@@ -15,7 +15,7 @@ namespace LadeskabLibrary
     {
         // Enum med tilstande ("states") svarende til tilstandsdiagrammet for klassen
         // Made public for testability
-        public enum LadeskabState
+        private enum LadeskabState
         {
             Available,
             Locked,
@@ -29,18 +29,6 @@ namespace LadeskabLibrary
         private IRfidReader _rfidReader;
         private int _oldId;
         private IDisplay _display;
-
-        // For testability
-        public int OldId
-        {
-            get { return _oldId; }
-            set { _oldId = value; }
-        }
-        public LadeskabState State
-        {
-            get { return _state; }
-            set { _state = value; }
-        }
 
         private string logFile = "logfile.txt"; // Navnet på systemets log-fil
 
@@ -103,9 +91,9 @@ namespace LadeskabLibrary
 
                     break;
 
-                case LadeskabState.DoorOpen:
+                /*case LadeskabState.DoorOpen:
                     // Ignore
-                    break;
+                    break;*/
 
                 case LadeskabState.Locked:
                     // Check for correct ID
@@ -139,13 +127,13 @@ namespace LadeskabLibrary
                     _state = LadeskabState.DoorOpen;
                     break;
 
-                case LadeskabState.DoorOpen:
+                /*case LadeskabState.DoorOpen:
                     // Ignore
-                    break;
+                    break;*/
 
-                case LadeskabState.Locked:
+                /*case LadeskabState.Locked:
                     // Ignore
-                    break;
+                    break;*/
             }
         }
 
@@ -153,18 +141,18 @@ namespace LadeskabLibrary
         {
             switch (_state)
             {
-                case LadeskabState.Available:
+                /*case LadeskabState.Available:
                     // Ignore
-                    break;
+                    break;*/
 
                 case LadeskabState.DoorOpen:
                     _display.DisplayReadRfid();
                     _state = LadeskabState.Available;
                     break;
 
-                case LadeskabState.Locked:
+                /*case LadeskabState.Locked:
                     // Ignore
-                    break;
+                    break;*/
             }
         }
 
